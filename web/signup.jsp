@@ -23,7 +23,7 @@
             <div class="inner-auth-container">
                 <div class="section-left">
                     <div class="inner-section-left">
-                        <a class="return" href="homepage.html">
+                        <a class="return" href="login.jsp">
                             <i class="bx bx-arrow-back"></i>
                         </a>
                         <div class="section-left-header">
@@ -52,6 +52,9 @@
                                 <input type="text" placeholder="Enter your email" name="email" required/>
                             </div>
                             <div class="input-container">
+                                <input type="text" placeholder="Enter your phone number " name="phone" required/>
+                            </div>
+                            <div class="input-container">
                                 <input onchange="checkUser(this)" type="text" placeholder="Enter username" name="username" value="${username}" required/>
                                 <span id="context"></span>
                             </div>
@@ -77,10 +80,7 @@
                                 <i class="bx bxl-google"></i>
                                 <span>Signup With Google</span>
                             </div>
-                            <div class="oauth-item">
-                                <i class="bx bxl-apple"></i>
-                                <span>Signup With Apple</span>
-                            </div>
+
                         </div>
                     </div>
                 </div>

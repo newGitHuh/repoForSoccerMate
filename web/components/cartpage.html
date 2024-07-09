@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/global/base.css" type="text/css">
+    <link rel="stylesheet" href="css/checkout/cartpage.css" type="text/css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="cart-container">
+        <div id="setting" class="setting-cover closesetting">
+            <div class="setting non-animated" id="animatesetting">
+                <i id="exitsetting" class="bx bx-x"></i>
+                <div class="setting-profile">
+                    <strong>Hello Hoang Tri</strong>
+                    <small>youremail@gmail.com</small>
+                </div>
+                <div class="setting-nav">
+                    <a href="profilesettingpage.html">
+                        <i class="bx bxs-user-detail"></i>
+                        <span href="">Profile</span>
+                    </a>
+                    <a href="securitysettingpage.html">
+                        <i class="bx bxs-shield"></i>
+                        <span href="">Security</span>
+                    </a>
+                    <a href="userdashboard.html">
+                        <i class="bx bxs-bar-chart-alt-2"></i>
+                        <span href="">Admin dashboard</span>
+                    </a>
+                    <a href="#">
+                        <i class="bx bxs-moon"></i>
+                        <span href="">Dark mode</span>
+                    </a>
+                </div>
+                <div class="logout">
+                    <a href="">
+                        <i class="bx bxs-log-out-circle"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <header class="navbar-container">
+            <nav class="navbar">
+                <a href="homepage.html">SOCCERMATE</a>
+                <form class="search-form" action="">
+                    <input type="text" placeholder="Search..." />
+                    <button type="submit">
+                        <i class="bx bx-search-alt"></i>
+                    </button>
+                </form>
+                <div class="navigation">
+                    <a href="productspage.html">Stores</a>
+                    <a href="">Collection</a>
+                    <a href="">Company</a>
+                    <a href="">Contact us</a>
+                </div>
+                <div class="ultilities">
+                    <a href="cartpage.html">
+                        <i class="bx bx-cart"></i>
+                    </a>
+                    <span>
+                        <i id="opensetting" class="bx bx-cog"></i>
+                    </span>
+                </div>
+            </nav>
+        </header>
+        <div class="cart-index">
+            <h2>Your Cart</h2>
+            <div class="table-value">
+                <p>Item</p>
+                <p>Price</p>
+                <p>Qty</p>
+                <p>Total</p>
+            </div>
+            <div class="cart-list">
+                <div class="cart-item">
+                    <img src="/assets/trend1.webp" alt="">
+                    <div class="product-name">
+                        <p>Men's Dri-FIT Running T-Shirt </p>
+                        <a href="">Remove</a>
+                    </div>
+                    <p class="price-per-product">$199.00</p>
+                    <div class="quantity">
+                        <p class="minus">-</p>
+                        <input class="num" type="text" value="2">
+                        <p class="plus">+</p>
+                    </div>
+                    <span class="cart-total-price">$398.00</span>
+                </div>
+                <div class="cart-item">
+                    <img src="/assets/trend1.webp" alt="">
+                    <div class="product-name">
+                        <p>Men's Dri-FIT Running T-Shirt </p>
+                        <a href="">Remove</a>
+                    </div>
+                    <p class="price-per-product">$199.00</p>
+                    <div class="quantity">
+                        <p class="minus">-</p>
+                        <input class="num" type="text" value="1">
+                        <p class="plus">+</p>
+                    </div>
+                    <span class="cart-total-price">$199.00</span>
+                </div>
+            </div>
+            <div class="summary">
+                <strong>Order Summary</strong>
+                <div class="summary-item">
+                    <p>SUBTOTAL</p>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <p>TAX</p>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <p>TOTAL</p>
+                    <span>$0.00</span>
+                </div>
+                <a href="checkoutpage.html">Checkout</a>
+            </div>
+        </div>
+        <footer class="footer-container">
+            <div class="inner-footer">
+                <div class="social">
+                    <div class="social-logos">
+                        <a href="">
+                            <i class="bx bxl-github"></i>
+                        </a>
+                        <a href="">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="bx bxl-dribbble"></i>
+                        </a>
+                        <a href="">
+                            <i class="bx bxl-tiktok"></i>
+                        </a>
+                    </div>
+                    <div class="foot-nav">
+                        <a href="">TERMS</a>
+                        <a href="">SITEMAPS</a>
+                        <a href="">PRIVACY</a>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <h2>SOCCERMATE</h2>
+                    <h2>SOCCERMATE</h2>
+                    <h2>SOCCERMATE</h2>
+                </div>
+                <div class="copyright"></div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const setting = document.getElementById("setting");
+        const childsetting = document.getElementById("animatesetting");
+        const opensetting = document.getElementById("opensetting");
+        const closesetting = document.getElementById("exitsetting");
+        opensetting.addEventListener("click", () => {
+            setting.classList.add("opensetting");
+            setting.classList.remove("closesetting");
+            setTimeout(() => {
+                childsetting.classList.add("animated");
+                childsetting.classList.remove("non-animated");
+            }, 200);
+        });
+        closesetting.addEventListener("click", () => {
+            childsetting.classList.remove("animated");
+            childsetting.classList.add("non-animated");
+            setTimeout(() => {
+                setting.classList.remove("opensetting");
+                setting.classList.add("closesetting");
+            }, 500);
+        });
+    </script>
+    <script src="/js/number.js"></script>
+</body>
+
+</html>

@@ -61,12 +61,12 @@ public class LoginGoogleHandler extends HttpServlet {
                 account = dao.accountByEmail(user.getEmail());
 
                 session.setAttribute("user", account);
-                request.getRequestDispatcher("home.jsp").forward(request, response);
+                request.getRequestDispatcher("productPage").forward(request, response);
             } else {
-                dao.addAccount(user.getName(), user.getId(), "12345", user.getEmail(), null, 0);
+                dao.addAccount(user.getName(), user.getId(), "12345", user.getEmail(), null, 0,dao.genUserID());
                 account = dao.account(user.getId(), "12345");
                 session.setAttribute("user", account);
-                request.getRequestDispatcher("home.jsp").forward(request, response);
+                request.getRequestDispatcher("productPage").forward(request, response);
             }
         } catch (IOException | ClassNotFoundException | SQLException | ServletException e) {
             System.out.println("" + e.getMessage());

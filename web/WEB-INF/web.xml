@@ -6,7 +6,7 @@
 	 version="3.1">
     <session-config>
         <session-timeout>
-            600
+            1000
         </session-timeout>
     </session-config>
 </web-app>

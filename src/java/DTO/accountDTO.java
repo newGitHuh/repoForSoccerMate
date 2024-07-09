@@ -12,19 +12,30 @@ package DTO;
 public class accountDTO {
 
     private String fullname, username, password, email, phone;
-    private int roleID;
+    private int roleID,accountID;
 
     public accountDTO() {
     }
 
-    public accountDTO(String fullname, String username, String password, String email, String phone, int roleID) {
+    public accountDTO(String fullname, String username, String password, String email, String phone, int roleID, int accountID) {
         this.fullname = fullname;
         this.username = username;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.roleID = roleID;
+        this.accountID = accountID;
     }
+
+    public int getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
+    }
+    
+   
 
     public String getFullname() {
         return fullname;
@@ -76,7 +87,10 @@ public class accountDTO {
 
     @Override
     public String toString() {
-        return "accountDTO{" + "fullname=" + fullname + ", username=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone + ", roleID=" + roleID + '}';
+        return "accountDTO{" + "fullname=" + fullname + ", username=" + username + ", password=" + password + ", email=" + email + ", phone=" + phone + ", roleID=" + roleID + ", accountID=" + accountID + '}';
     }
+
+    
+    
 
 }

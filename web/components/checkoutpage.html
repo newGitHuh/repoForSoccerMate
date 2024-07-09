@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/global/base.css" />
+    <link rel="stylesheet" href="/css/checkout/checkout.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="checkout-container">
+        <form method="post" spellcheck="false" autocomplete="off" class="checkout-form">
+            <strong>Checkout</strong>
+            <div class="info">
+                <strong>Your Information</strong>
+                <div class="info-input">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Enter your email..." value="mailong66@gmail.com">
+                </div>
+                <div class="info-input">
+                    <label for="">Address</label>
+                    <input type="text" placeholder="Enter your address..." value="20 Tran Phu, Q5, TPHCM">
+                </div>
+                <div class="info-input">
+                    <label for="">Phone Number</label>
+                    <input type="text" placeholder="Enter phone number..." value="081236581">
+                </div>
+            </div>
+            <div class="payment-method">
+                <strong>Payment Method</strong>
+                <div class="payment">
+                    <div class="payment-input">
+                        <input type="radio" name="payment" value="bank" id="bank">
+                        <label for="bank">
+                            <p>Bank Transfer</p>
+                            <i class='bx bxs-bank'></i>
+                        </label>
+                    </div>
+                    <div class="payment-input">
+                        <input type="radio" name="payment" value="cash" id="cash">
+                        <label for="cash">
+                            <p>Cash</p>
+                            <i class='bx bx-money'></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="only-bank hidden">
+                    <div class="bank-select">
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="mb">
+                            <label for="mb">MB Bank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="vcb">
+                            <label for="vcb">Vietcombank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="tcb">
+                            <label for="tcb">Techcombank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="tpb">
+                            <label for="tpb">TPBank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="bidv">
+                            <label for="bidv">BIDV</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="acb">
+                            <label for="acb">ACB</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="hdb">
+                            <label for="hdb">HDBank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="vib">
+                            <label for="vib">VIB</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="agb">
+                            <label for="agb">Agribank</label>
+                        </div>
+                        <div class="bank-item">
+                            <input type="radio" name="bank" id="others">
+                            <label for="others">Others</label>
+                        </div>
+                    </div>
+                    <div class="only-bank-input">
+                        <label for="">Card Number</label>
+                        <input type="text" placeholder="0921191360">
+                    </div>
+                    <div class="only-bank-input">
+                        <label for="">Owner</label>
+                        <input type="text" placeholder="Truong Hoang Tri">
+                    </div>
+                </div>
+            </div>
+            <div class="shipping-method">
+                <strong>Shipping Type</strong>
+                <div class="shipping">
+                    <div class="shipping-input">
+                        <input type="radio" name="shipping" value="normal" id="normal">
+                        <label for="normal">
+                            <p>Normal Delivery</p>
+                            <i class='bx bx-package'></i>
+                        </label>
+                    </div>
+                    <div class="shipping-input">
+                        <input type="radio" name="shipping" value="fast" id="fast">
+                        <label for="fast">
+                            <p>Fast Delivery</p>
+                            <i class='bx bxs-truck'></i>
+                        </label>
+                    </div>
+                </div>
+                <p class="noteship">Fast delivery will deliver same day and the delivery fee is $10. Note that
+                    fast delivery is available
+                    only in city areas</p>
+            </div>
+            <div class="buttons">
+                <a href="cartpage.html" class="cancel">Back to cart</a>
+                <button class="confirm">Confirm payment</button>
+            </div>
+        </form>
+        <div class="checkout-summary">
+            <strong>Order Summary</strong>
+            <div class="summary">
+                <div class="summary-item">
+                    <p>CART</p>
+                    <span>$400</span>
+                </div>
+                <div class="summary-item">
+                    <p>DELIVERY FEE</p>
+                    <span>$0</span>
+                </div>
+            </div>
+            <div class="total">
+                <p>TOTAL</p>
+                <span>$400</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bankRadio = document.getElementById('bank');
+            const cashRadio = document.getElementById('cash');
+            const onlyBankSection = document.querySelector('.only-bank');
+
+            bankRadio.addEventListener('change', function () {
+                if (bankRadio.checked) {
+                    onlyBankSection.classList.remove('hidden');
+                }
+            });
+
+            cashRadio.addEventListener('change', function () {
+                if (cashRadio.checked) {
+                    onlyBankSection.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

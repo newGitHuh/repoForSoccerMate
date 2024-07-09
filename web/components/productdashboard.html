@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Dashboard</title>
+    <link rel="stylesheet" href="/css/global/base.css" />
+    <link rel="stylesheet" href="/css/dashboard/productdashboard.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="add-modal-cover hide" id="addmodal">
+            <div class="add-modal">
+                <div class="add-modal-header">
+                    <strong>Add New Product</strong>
+                    <span>Form to add new product here.</span>
+                </div>
+                <form action="" method="post" autocomplete="off" spellcheck="false" class="add-form">
+                    <div class="input-item">
+                        <label for="fullname">Product name *</label>
+                        <input type="text" placeholder="PredatorX T-shirt" />
+                    </div>
+                    <div class="input-item">
+                        <label for="username">Image (URL) *</label>
+                        <input type="text" placeholder="https://static.nike.com/a/images/shirt1.png" />
+                    </div>
+                    <div class="input-item">
+                        <label for="password">Price</label>
+                        <input type="text" placeholder="299" />
+                    </div>
+                    <div class="input-item">
+                        <label for="password">Description</label>
+                        <textarea name="" id="" placeholder="Lorem ispum..."></textarea>
+                    </div>
+                    <div class="input-item">
+                        <label for="password">Category</label>
+                        <select name="" id="">
+                            <option value="">Select category</option>
+                            <option value="">T-Shirt</option>
+                            <option value="">Sport</option>
+                            <option value="">Others</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <span id="closeadd">Cancel</span>
+                        <button type="submit">Create A Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="edit-modal-cover hide" id="editmodal">
+            <div class="edit-modal">
+                <div class="edit-modal-header">
+                    <strong>Edit Product</strong>
+                    <span>Form to edit product here.</span>
+                </div>
+                <form action="" method="post" autocomplete="off" spellcheck="false" class="edit-form">
+                    <div class="input-item">
+                        <label for="productname">Product name *</label>
+                        <input type="text" placeholder="PredatorX T-shirt" />
+                    </div>
+                    <div class="input-item">
+                        <label for="image">Image (URL) *</label>
+                        <input type="text" placeholder="https://static.nike.com/a/images/shirt1.png" />
+                    </div>
+                    <div class="input-item">
+                        <label for="price">Price</label>
+                        <input type="text" placeholder="299" />
+                    </div>
+                    <div class="input-item">
+                        <label for="description">Description</label>
+                        <textarea name="" id="" placeholder="Lorem ispum..."></textarea>
+                    </div>
+                    <div class="input-item">
+                        <label for="category">Category</label>
+                        <select name="" id="">
+                            <option value="">Select category</option>
+                            <option value="">T-Shirt</option>
+                            <option value="">Sport</option>
+                            <option value="">Others</option>
+                        </select>
+                    </div>
+                    <div class="buttons">
+                        <span id="closeedit">Cancel</span>
+                        <button type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- dont change this -->
+        <header class="dashboard-nav-container">
+            <div class="dashboard-nav-header">
+                <h2>SOCCERMATE.</h2>
+            </div>
+            <div class="main-menu">
+                <small>MAIN MENU</small>
+                <div id="accords-btn" class="accordion">
+                    <div class="accordion-content">
+                        <i class="bx bxs-dashboard"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <i id="accords-icon" class="bx bx-chevron-up"></i>
+                </div>
+                <div id="accords-content" class="nav-items-accords">
+                    <a href="productdashboard.html" class="nav-item-acc" style="background: black; color: white;">
+                        <i class="bx bx-package"></i>
+                        <span>Product</span>
+                    </a>
+                    <a href="userdashboard.html" class="nav-item-acc">
+                        <i class="bx bx-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="#" class="nav-item-acc">
+                        <i class="bx bx-hive"></i>
+                        <span>Category</span>
+                    </a>
+                    <a href="invoicedashboard.html" class="nav-item-acc">
+                        <i class="bx bx-book-content"></i>
+                        <span>Invoice</span>
+                    </a>
+                </div>
+                <a href="#" class="nav-item">
+                    <i class="bx bx-stats"></i>
+                    <span>Statistic</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bx bx-notification"></i>
+                    <span>Notification</span>
+                </a>
+            </div>
+            <div class="nav-ultilities">
+                <small>ACCOUNT</small>
+                <div class="ultil-item">
+                    <i class="bx bx-help-circle"></i>
+                    <span>Help</span>
+                </div>
+                <div class="ultil-item">
+                    <i class="bx bx-cog"></i>
+                    <span>Settings</span>
+                </div>
+                <a href="../homepage.html" class="ultil-item">
+                    <i class="bx bx-log-out"></i>
+                    <span>Back to homepage</span>
+                </a>
+            </div>
+        </header>
+        <div class="main-index">
+            <div class="dashboard-header-title">
+                <h2>Production Dashboard</h2>
+            </div>
+            <div class="cards">
+                <a href="#" class="card-item">
+                    <p>Total products</p>
+                    <div class="card-item-content">
+                        <strong>42 products</strong>
+                        <small>-3.2%</small>
+                    </div>
+                    <span>all products of SOCCERMATE.</span>
+                </a>
+                <a href="#" class="card-item">
+                    <p>Active products</p>
+                    <div class="card-item-content">
+                        <strong>42 active</strong>
+                        <small>0%</small>
+                    </div>
+                    <span>products displayed on website.</span>
+                </a>
+                <a href="#" class="card-item">
+                    <p>Best Seller</p>
+                    <div class="card-item-content">
+                        <strong>Dri-FIT Running</strong>
+                        <small>1st</small>
+                    </div>
+                    <span>best seller in this month.</span>
+                </a>
+            </div>
+            <div class="filter-container">
+                <input type="text" autocomplete="off" spellcheck="false" class="filter-search"
+                    placeholder="Search products..." />
+                <div class="filter">
+                    <select name="" id="">
+                        <option value="">Filter</option>
+                        <option value="">Acsending by ID</option>
+                        <option value="">Descending by ID</option>
+                        <option value="">Acsending by Name</option>
+                        <option value="">Descending by Name</option>
+                    </select>
+                    <i class="bx bx-expand-vertical"></i>
+                </div>
+                <button id="openadd">
+                    <i class="bx bx-plus-circle"></i>
+                    <span>Products</span>
+                </button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="th">ID</th>
+                        <th class="th">Name</th>
+                        <th class="th">Price</th>
+                        <th class="th">Category</th>
+                        <th class="th">Action</i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td">1</td>
+                        <td class="td">Dri-FIT Running</td>
+                        <td class="td">$199.00</td>
+                        <td class="td">T-shirt</td>
+                        <td class="td">
+                            <i id="openedit" class='bx bx-edit-alt'></i>
+                            <i class='bx bx-trash-alt'></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const accordionBtn = document.getElementById("accords-btn");
+        const accordContent = document.getElementById("accords-content");
+        const icon = document.getElementById("accords-icon");
+        accordionBtn.addEventListener("click", () => {
+            icon.classList.toggle("icon-open");
+            accordContent.classList.toggle("accordion-open");
+        });
+    </script>
+    <script src="/js/toggleAdd.js"></script>
+    <script src="/js/toggleEdit.js"></script>
+</body>
+
+</html>

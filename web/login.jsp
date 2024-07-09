@@ -68,7 +68,7 @@
 
                         </div>
                         <div class="other">
-                            <a href="#">Forgot password?</a>
+                            
                             <div class="signup">
                                 <p>Don't have an account?</p>
                                 <a href="signup.jsp">Sign up</a>

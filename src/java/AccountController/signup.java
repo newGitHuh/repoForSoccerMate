@@ -40,8 +40,10 @@ public class signup extends HttpServlet {
             String email = request.getParameter("email");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String phone = request.getParameter("phone");
             accountDAO dao = new accountDAO();
-            dao.addAccount("" + firstname + " " + lastname, username, password, email, "01234567", 0);
+            dao.addAccount(""+ firstname + " " + lastname, username, password, email, phone, 0,dao.genUserID());
+            request.getRequestDispatcher("productPage").forward(request, response);
         }
     }
 

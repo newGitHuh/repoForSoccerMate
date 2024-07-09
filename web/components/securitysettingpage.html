@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Setting</title>
+  <link rel="stylesheet" href="/css/global/base.css" />
+  <link rel="stylesheet" href="/css/setting/setting.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="setting-container">
+    <div class="setting-header">
+      <strong>Security settings</strong>
+      <span>Manage your account username, password or set Two factor
+        authentication.</span>
+    </div>
+    <div class="setting">
+      <div class="setting-nav">
+        <a href="profilesettingpage.html">Profile</a>
+        <a href="securitysettingpage.html" style="background: #e4e4e4">Security</a>
+        <a href="../homepage.html">Return to homepage</a>
+      </div>
+      <div class="setting-main">
+        <div class="setting-main-header">
+          <strong>Security</strong>
+          <span>This is how you protect your account.</span>
+        </div>
+        <form action="" class="profile-form" autocomplete="off" spellcheck="false">
+          <div class="form-item">
+            <label for="">Username</label>
+            <input onchange="checkDuplicate(this.value)" type="text" placeholder="admin1" value="admin123" />
+            <p>aaa</p>
+            <small>This is your public display name. It can be your real name or a
+              pseudonym. You can only change this once every 30 days.</small>
+          </div>
+          <div class="form-item">
+            <label for="">password</label>
+            <input type="password" placeholder="*********" value="acsascasc" />
+            <small>You can manage your phone number</small>
+          </div>
+          <!-- <div class="form-item">
+              <label for="">Email</label>
+              <input type="text" placeholder="monlai8971@gmail.com" />
+              <small>You can manage verified email addresses</small>
+            </div> -->
+          <button class="submitbutton">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

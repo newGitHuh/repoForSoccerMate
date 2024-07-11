@@ -19,11 +19,11 @@ import java.util.List;
  * @author admin
  */
 public class invoiceDAO {
-
+    
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-
+    
     static private String insertInvoice = "insert into invoice values (?,?,?,?,?,?)";
     static private String invoidDetail = "insert into invoiceDetail values (?,?,?,?)";
     static private String count = "select top 1 invoiceID as counted from invoice order by invoiceID desc";
@@ -33,7 +33,7 @@ public class invoiceDAO {
     static private String updateStatus = "update invoice\n"
             + "set completeStatus = ?\n"
             + "where invoiceID = ?";
-
+    
     public void createInvoice(int id, String username, String shipAdress, int phone, int price, String status) {
         try {
             conn = DBContext.DBUtils.getConnection();
@@ -45,12 +45,12 @@ public class invoiceDAO {
             ps.setInt(5, price);
             ps.setString(6, status);
             ps.executeUpdate();
-
+            
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("" + e.getMessage());
         }
     }
-
+    
     public void invoiceDetail(int invoiceID, String pid, int qty, int totalPrice) {
         try {
             conn = DBContext.DBUtils.getConnection();
@@ -64,7 +64,7 @@ public class invoiceDAO {
             System.out.println("" + e.getMessage());
         }
     }
-
+    
     public int genID() {
         int countNumber = 0;
         try {
@@ -79,7 +79,7 @@ public class invoiceDAO {
         }
         return countNumber + 1;
     }
-
+    
     public List<invoiceDTO> listAllInvoice() {
         List<invoiceDTO> list = new ArrayList<>();
         try {
@@ -92,10 +92,10 @@ public class invoiceDAO {
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("" + e.getMessage());
         }
-
+        
         return list;
     }
-
+    
     public List<cartDTO> listInvoiceByID(String id) {
         List<cartDTO> list = new ArrayList<>();
         productDAO dao = new productDAO();
@@ -112,7 +112,7 @@ public class invoiceDAO {
         }
         return list;
     }
-
+    
     public invoiceDTO listDetailCartByID(String id) {
         invoiceDTO cart = null;
         try {
@@ -122,25 +122,33 @@ public class invoiceDAO {
             rs = ps.executeQuery();
             if (rs.next()) {
                 cart = new invoiceDTO();
-
+                
                 cart.setId(rs.getInt("invoiceID"));
                 cart.setName(rs.getString("username"));
                 cart.setAddress(rs.getString("ShippingAddress"));
                 cart.setPhone(rs.getInt("phone"));
                 cart.setTotalPrice(rs.getInt("totalPrice"));
                 cart.setCompleteStatus(rs.getString("completeStatus"));
-
+                
             }
         } catch (ClassNotFoundException | NumberFormatException | SQLException e) {
             System.out.println("" + e.getMessage());
         }
         return cart;
     }
-
+    
     public void updateStatus(int id, String status) {
-
+        try {
+            conn = DBContext.DBUtils.getConnection();
+            ps = conn.prepareStatement(updateStatus);
+            ps.setString(1, status);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
-
+    
     public static void main(String[] args) {
         invoiceDAO dao = new invoiceDAO();
 //        int a=dao.genID();
@@ -151,10 +159,11 @@ public class invoiceDAO {
 //            System.out.println(dTO);
 //        }
         List<cartDTO> list = new ArrayList<>();
-        list = dao.listInvoiceByID("1");
-        for (cartDTO dTO : list) {
-            System.out.println(dTO);
-        }
+//        list = dao.listInvoiceByID("1");
+//        for (cartDTO dTO : list) {
+//            System.out.println(dTO);
+//        }
+            dao.updateStatus(2, "Completed ");
 //    invoiceDTO cart = new invoiceDTO();
 //    cart=dao.listDetailCartByID("1");
 //        System.out.println(cart);

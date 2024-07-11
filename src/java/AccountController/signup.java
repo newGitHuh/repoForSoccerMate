@@ -6,6 +6,7 @@
 package AccountController;
 
 import DAO.accountDAO;
+import DTO.accountDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,7 +44,10 @@ public class signup extends HttpServlet {
             String password = request.getParameter("password");
             String phone = request.getParameter("phone");
             accountDAO dao = new accountDAO();
+            accountDTO account = new accountDTO(""+ firstname + " " + lastname, username, password, email, phone, 0,dao.genUserID());
             dao.addAccount(""+ firstname + " " + lastname, username, password, email, phone, 0,dao.genUserID());
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", account);
             request.getRequestDispatcher("productPage").forward(request, response);
         }
     }

@@ -98,10 +98,7 @@
                             <i class="bx bx-user"></i>
                             <span>Account</span>
                         </a>
-                        <a href="#" class="nav-item-acc">
-                            <i class="bx bx-hive"></i>
-                            <span>Category</span>
-                        </a>
+                        
                         <a href="loadInvoice?invoiceID=1" class="nav-item-acc">
                             <i class="bx bx-book-content"></i>
                             <span>Invoice</span>

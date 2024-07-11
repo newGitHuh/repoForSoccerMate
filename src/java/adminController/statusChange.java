@@ -5,6 +5,7 @@
  */
 package adminController;
 
+import DAO.invoiceDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -34,7 +35,11 @@ public class statusChange extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+             int id = Integer.parseInt(request.getParameter("invoiceID"));
+             String status = request.getParameter("status");
+             invoiceDAO dao = new invoiceDAO();
+             dao.updateStatus(id, status);
+             response.sendRedirect("loadInvoice?invoiceID=1");
         }
     }
 

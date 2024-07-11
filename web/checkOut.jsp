@@ -17,13 +17,13 @@
 
     <body>
         <div class="checkout-container">
-            <form method="get" spellcheck="false" autocomplete="off" class="checkout-form" action="completeOrder">
+            <form method="post" spellcheck="false" autocomplete="off" class="checkout-form" action="completeOrder">
                 <strong>Checkout</strong>
                 <div class="info">
                     <strong>Your Information</strong>
                     <div class="info-input">
                         <label for="">Email</label>
-                        <input type="text" placeholder="Enter your email..." value="${sessionScope.user.email}" name="email">
+                        <input type="text" placeholder="Enter your email..." value="${sessionScope.user.email.trim()}" name="email" disabled="">
                     </div>
                     <div class="info-input">
                         <label for="">Address</label>

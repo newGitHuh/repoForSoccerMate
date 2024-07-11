@@ -70,6 +70,7 @@
                                 type="submit"
                                 class="login-btn"
                                 value="Create new account"
+                                id="submit-btn"
                                 />
                         </form>
                         <div class="or">
@@ -93,29 +94,34 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
-            function checkUser(s) {
-                var param = s.value;
-                $.ajax({
-                    url: "/SoccerMate/checkDuplicateUser",
-                    type: "get", //send it through get method
-                    data: {
-                        username: param
-                    },
-                    success: function (data) {
-                        var row = document.getElementById("context");
-                        if (data === "yes") {
-                            row.innerHTML = 'duplicate nigger';
-                        } else {
-                            console.log(data);
-                            row.innerHTML = '';
-                        }
-                    },
-                    error: function (xhr) {
-                        //Do Something to handle error
-                        console.log(xhr);
-                    }
-                });
-            }
+                                    
+                                    
+                                    function checkUser(s) {
+                                        const submitBtn = document.getElementById('submit-btn');
+                                        var param = s.value;
+                                        $.ajax({
+                                            url: "/SoccerMate/checkDuplicateUser",
+                                            type: "get", //send it through get method
+                                            data: {
+                                                username: param
+                                            },
+                                            success: function (data) {
+                                                var row = document.getElementById("context");
+                                                if (data === "yes") {
+                                                    row.innerHTML = 'duplicate username';
+                                                    submitBtn.disabled = true;
+                                                } else {
+                                                    console.log(data);
+                                                    row.innerHTML = '';
+                                                    submitBtn.disabled = false;
+                                                }
+                                            },
+                                            error: function (xhr) {
+                                                //Do Something to handle error
+                                                console.log(xhr);
+                                            }
+                                        });
+                                    }
         </script>
     </body>
 </html>

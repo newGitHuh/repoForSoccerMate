@@ -5,9 +5,9 @@
  */
 package CartController;
 
-import DAO.invoiceDAO;
-import DTO.accountDTO;
+import DAO.productDAO;
 import DTO.cartDTO;
+import DTO.productDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author admin
  */
-@WebServlet(name = "completeOrder", urlPatterns = {"/completeOrder"})
-public class completeOrder extends HttpServlet {
+@WebServlet(name = "deleteProductFromCart", urlPatterns = {"/deleteProductFromCart"})
+public class DeleteProductFromCart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,24 +38,21 @@ public class completeOrder extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-            String address = request.getParameter("address");
-            int phone = Integer.parseInt(request.getParameter("phone").trim());
-            int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
-            invoiceDAO dao = new invoiceDAO();
-            int invoiceID = dao.genID();
             HttpSession session = request.getSession();
-            accountDTO account = (accountDTO) session.getAttribute("user");
+
+            String productID = request.getParameter("pid").trim();
             List<cartDTO> listCart = (List<cartDTO>) session.getAttribute("listCart");
-            dao.createInvoice(invoiceID, account.getUsername(), address, phone, totalPrice, "pending");
-            for (cartDTO cart : listCart) {
-                dao.invoiceDetail(invoiceID, cart.getProduct().getProductID(), cart.getQty(), cart.getProduct().getPrices()*cart.getQty());
+            for (cartDTO list : listCart) {
+                if (list.getProduct()
+                        .getProductID().trim()
+                        .equals(productID)) 
+                {
+                    listCart.remove(list);
+                    break;
+                }
             }
-            
-            session.setAttribute("listCart", listCart);
-            
-            request.getRequestDispatcher("sendMail").forward(request, response);
+            response.sendRedirect("cartPage.jsp");
+
         }
     }
 

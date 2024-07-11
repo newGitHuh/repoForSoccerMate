@@ -49,7 +49,7 @@
                             <img src="${o.getProduct().getProductImg()}" alt="">
                             <div class="product-name">
                                 <p>${o.getProduct().getProductName()}</p>
-                                <a href="">Remove</a>
+                                <a href="deleteProductFromCart?pid=${o.getProduct().getProductID().trim()}">Remove</a>
                             </div>
                             <p class="price-per-product">$${o.getProduct().getPrices()}</p>
 

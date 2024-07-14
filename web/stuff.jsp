@@ -16,10 +16,12 @@
                                 <i class="bx bxs-shield"></i>
                                 <span href="">Security</span>
                             </a>
+                            <c:if test="${sessionScope.user.roleID eq 1}">
                             <a href="userDashboard">
                                 <i class="bx bxs-bar-chart-alt-2"></i>
                                 <span href="userDashboard">Admin dashboard</span>
                             </a>
+                            </c:if>
                             <a href="#">
                                 <i class="bx bxs-moon"></i>
                                 <span href="">Dark mode</span>

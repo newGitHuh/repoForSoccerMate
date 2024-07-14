@@ -15,8 +15,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet" />
-     
-        
+
+
     </head>
 
     <body>
@@ -69,13 +69,13 @@
                 <h2 class="product-header">SOCCERMATE PRODUCTS</h2>
                 <div class="filter">
                     <div class="filter-items">
-                        <form name="filter" action="sortProduct" method="get">
+                        <form name="filter" action="sortProduct" method="post">
                             <select name="filter" onchange="submitForm()">
                                 <option value="">FILTER BY</option>
-                                <option  value="id">FILTER BY ID</option>
-                                <option value="name">FILTER BY NAME</option>
-                                <option value="price">FILTER BY PRICE</option>                                
-                                <input name="productList" type="hidden" value="${productList}">
+                                <option  value="asc">FILTER BY PRICE LOW -> HIGH</option>
+                                <option value="desc">FILTER BY PRICE HIGH -> LOW</option>
+                                <option value="name">FILTER BY NAME</option>                                
+
                             </select>
                         </form>
                     </div>
@@ -93,10 +93,10 @@
                 </div>
             </div>
             <div class="pagination">
-                    <c:forEach begin="1" end="${endOfPage}" var="i">
-                        <a href="productPage?page=${i}" class="${i == currentPage ? "pageActive" : ""}">${i}</a>
-                    </c:forEach>
-                </div>
+                <c:forEach begin="1" end="${endOfPage}" var="i">
+                    <a href="productPage?page=${i}" class="${i == currentPage ? "pageActive" : ""}">${i}</a>
+                </c:forEach>
+            </div>
             <%@include file="footer.jsp" %>
         </div>
         <%@include file="js.jsp" %>

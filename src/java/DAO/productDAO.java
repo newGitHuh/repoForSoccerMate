@@ -47,6 +47,8 @@ public class productDAO {
             + "offset ? rows\n"
             + "fetch next ? rows only";
 
+    
+
     public productDTO getProductByID(String id) {
         productDTO product = null;
         try {
@@ -234,10 +236,10 @@ public class productDAO {
         return list;
 
     }
-    
-    public List<productDTO> pagePaging(int offset,int limit) {
+
+    public List<productDTO> pagePaging(int offset, int limit) {
         List<productDTO> list = new ArrayList<>();
-        
+
         try {
             conn = DBContext.DBUtils.getConnection();
             ps = conn.prepareStatement(pagingProduct);

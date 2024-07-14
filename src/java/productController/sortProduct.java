@@ -5,9 +5,12 @@
  */
 package productController;
 
+import DAO.productDAO;
+import DTO.CategoryDTO;
 import DTO.productDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -38,19 +41,24 @@ public class sortProduct extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String filter = request.getParameter("filter");
-            List<productDTO> list = (List<productDTO>) request.getAttribute("productList");
-            Collections.sort(list, new Comparator<productDTO>() {
-                @Override
-                public int compare(productDTO o1, productDTO o2) {
-                    return Integer.compare(Integer.parseInt(o1.getProductID()), Integer.parseInt(o2.getProductID()));
-
-                }
-                
-                 });
-            for (productDTO dTO : list) {
-                System.out.println(dTO);
+            String sortBy = request.getParameter("filter");
+            
+            String column = sortBy.equals("asc") || sortBy.equals("desc") ? "prices" : "productname";
+            if(sortBy.equals("name")){
+                sortBy="";
             }
+            List<productDTO> list = new ArrayList<>();
+            List<CategoryDTO> listCate = new ArrayList<>();
+            productDAO dao = new productDAO();
+            
+            listCate=dao.listCategory();
+            list=dao.sortProduct(column, sortBy);
+            int currentProduct = dao.currentProduct();
+            
+            request.setAttribute("productList", list);
+            request.setAttribute("listCate", listCate);
+            request.setAttribute("currentProduct", currentProduct);
+            request.getRequestDispatcher("productPage.jsp").forward(request, response);
         }
     }
 
